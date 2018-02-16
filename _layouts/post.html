@@ -1,0 +1,13 @@
+---
+layout: default
+---
+
+<div class="post-header">
+    <h2 id="post-title-header">{{ page.title }}</h2>
+
+    <div id="post-excerpt-content">{{ page.excerpt }}</div>
+
+    <div id="post-details">{{ page.date | date: "%-d %B %Y" }}, by {{ page.author | default: site.author }}</div>
+</div>
+
+{{content}}

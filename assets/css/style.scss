@@ -1,0 +1,72 @@
+---
+---
+
+@import "{{ site.theme }}";
+
+body {
+    font: 18px/1.8 "Noto Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    padding: 25px;
+}
+
+.wrapper {
+    width: 720px;
+}
+
+header {
+    width: auto;
+    float: none;
+    position: initial;
+}
+
+section {
+    width: auto;
+    float: none;
+    border: 1px solid #e5e5e5;
+    border-width: 1px 0;
+    padding: 20px 0;
+    margin: 0 0 20px;
+}
+
+footer {
+    width: auto;
+    float: none;
+    position: initial;
+}
+
+.post-item {
+    margin-bottom: 25px;
+}
+
+.post-title {
+    font-size: 1.5em;
+}
+
+.post-date {
+    font-size: 0.8em;
+}
+
+#post-title-header {
+    margin: 0
+}
+
+#post-excerpt-content {
+    font-size: 1.1em;
+    font-style: italic;
+}
+
+#post-details {
+    font-size: 0.7em;
+}
+
+.post-header {
+    margin-bottom: 25px;
+}
+
+a:hover, a:focus {
+  color:#069;
+  font-weight: normal;
+}
+
+blockquote {
+    font-size: 1.8em;
+}

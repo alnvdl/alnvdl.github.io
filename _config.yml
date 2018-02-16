@@ -1,0 +1,5 @@
+theme: jekyll-theme-minimal
+title: Allan's blog
+author: Allan
+plugins:
+  - jekyll-seo-tag
