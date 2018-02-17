@@ -4,7 +4,7 @@ layout: default
 
 <h2>About me</h2>
 
-I'm Allan Vidal, a researcher on computer networks and developer in Brazil.
+I'm Allan Vidal, a researcher on computer networks and a developer in Brazil.
 
 View my [GitHub profile](https://github.com/alnvdl).
 

@@ -7,9 +7,9 @@ excerpt: A plea for developers and designers to remember those of us with cringe
 
 Brazil, like the US, is a country of continental proportions and diversity. And much like in the US, internet access is not that great: slow speeds, high prices, and very few alternatives. That is, assuming you have an alternative to begin with.
 
-I first got broadband access at home, in 2001. With a 256 Kbps DSL connection, I was happy that I could stay online all day long and download things 5 times faster than over the previous dial-up connection. A few years later, the downstream speed had doubled to a whooping 500 Kbps. By 2009, it was bumped to 2 Mbps, still ADSL. Progress seemed inevitable, but then it stopped there.
+I first got broadband access at home in 2001. With a 256 Kbps DSL connection, I was happy that I could stay online all day long and download things 5 times faster than over the previous dial-up connection. A few years later, the downstream speed had doubled to a whopping 500 Kbps. By 2009, it was bumped to 2 Mbps, still ADSL. Progress seemed inevitable, but then it stopped there.
 
-In 2014, I moved to another house one mile away, and there, not even DSL was available: I had to use a ~8 Mbps 3G connection with a 20 GB data cap. DSL access became available one year later, at the mind-blowing speed of 4 Mbps.
+In 2014, I moved to another house one mile away, and there, not even DSL was available: I had to use a ~8 Mbps 3G connection with a 20 GB monthly data cap. DSL access became available one year later, at the mind-blowing speed of 4 Mbps.
 
 But this article is not yet another rant about poor internet access. Instead, it is a plea for developers and designers to adapt a few of their practices so as to improve the user experience of those unlucky among us: the ones stuck with internet speeds that make most people cringe when you tell them.
 
@@ -27,7 +27,7 @@ I understand there's a trend towards simplification of user interfaces, and gran
 
 **Constant app updates**
 
-Some developers **really** like updating their apps. While it's nice to have up-to-date software, with all the bug fixes and improvements that come with it, it can also become an annoyance for those with slow internet links. You end with dozens of 30 MB-plus app updates every week, and while those are downloading, internet speeds are noticeably affected for both myself and other users.
+Some developers **really** like updating their apps. While it's nice to have up-to-date software, with all the bug fixes and improvements that come with it, it can also become an annoyance for those with slow internet links. You end with dozens of 30 MB-plus app updates every week, and while those are downloading, internet speeds are noticeably affected for everyone else.
 
 I don't mind having frequent updates, but do we really need two updates for Google Sheets every week?
 
@@ -39,7 +39,9 @@ This one should go without saying, you know the drill: avoid large images and re
 
 **Treating wifi connections as free-for-all**
 
-When I had that data capped 3G connection, I connected an iPad to the network, and it decided it could upload and sync backups, photos and everything else. In that first month, I ended up reaching the data cap in a few days just because of that iPad. It was an oversight of my part, but I didn't think my mother could be such an avid content producer :-) The solution was to disable all sorts of cloud sync, but there could be a better way. I think Windows has this feature, and everyone else should copy it: just let us set some wifi connections as metered, and then establish OS and application download/upload behavior around that.
+When I had that data capped 3G connection, I connected an iPad to the network, and it decided it could upload and sync backups, photos and everything else. In that first month, I ended up reaching the data cap in a few days just because of that iPad. It was an oversight of my part, but I didn't think my mother could be such an avid content producer :-)
+
+The solution was to disable all sorts of cloud sync, but there could be a better way. I think Windows has this feature, and everyone else should copy it: just let us set some wifi connections as metered, and then establish OS and application download/upload behavior around that.
 
 **200 MB-plus drivers**
 
@@ -55,12 +57,14 @@ Again, this one is about Windows, and I think it annoys everyone: you tell Windo
 
 **Automatic downloads**
 
-Automatically downloading content and applications without the user's permission should not happen, period. It's an intrusive practice on its own. But it's even more of a problem when that user has limited internet access. Windows (again...) has the terrible habit of downloading and updating apps that I never asked to be installed in the first place. One time I noticed download speeds were worse than usual. I opened the Task Manager and saw that my network interface was in fact downloading at full speed (4 Mbps...). After digging a bit I found the Windows Store downloading apps I didn't want. This same type of behavior also happens from time to time in Android, so it's not exclusively a Windows thing.
+Automatically downloading content and applications without the user's permission should not happen, period. It's an intrusive practice on its own. But it's even more of a problem when that user has limited internet access. Windows (again...) has the terrible habit of downloading and updating apps that I never asked to be installed in the first place.
+
+One time I noticed download speeds were worse than usual. I opened the Task Manager and saw that my network interface was in fact downloading at full speed (4 Mbps...). After digging a bit I found the Windows Store downloading apps I didn't want. This same type of behavior also happens from time to time on Android, so it's not exclusively a Windows thing.
 
 > Always ask yourself: what if I had only 10% of the bandwidth I have now?
 
-The experience of a sizeable portion of your users will be improved if you develop your application, website or service with these things in mind. When designing a user interface, or adding a feature that seems automagic, or when asking your users to update your application, always ask yourself: what if I had only 10% of the bandwidth I have now? I guarantee many people will be affected by the design choices you make after answering that question.
+The experience of a sizeable portion of your users will be improved if you develop your application, website or service with these things in mind. When designing a user interface, or adding a feature that seems automagic, or when asking your users to update your application, always ask yourself: what if I had only 10% of the bandwidth I have now? I guarantee many people will be positively affected by the design choices you make after answering that question.
 
-For those who may be wondering: despite the problems I mentioned above, the online experience in 2018 is ok at 4 Mbps. You get to watch Netflix (1 stream at 720p is fine, 2 simultaneous streams causes noticeable quality loss). You can download and play games if you are willing to wait a bit, and two or three people can browse the web comfortably at the same time. Sometimes you have to yell at your relatives because you need to load something fast. And if you don’t use your LAN that much, you can get away with pretty much any wifi router: I swear it won’t be slower than your WAN connection, not even behind lead walls :-)
+For those who may be wondering: despite the problems I mentioned above, the online experience in 2018 is ok at 4 Mbps. You get to watch Netflix (1 stream at 720p is fine, 2 simultaneous streams causes noticeable quality loss). You can download and play games online if you are willing to wait a bit, and two or three people can browse the web comfortably at the same time. Sometimes you have to yell at your relatives because you need to load something fast. And if you don’t use your LAN that much, you can get away with pretty much any wifi router: I swear it won’t be slower than your WAN connection, not even behind lead walls :-)
 
 And as for why I don’t simply move to another place with faster internet: 1) I have, this is an epilogue to my experience and 2) it’s not like I lived that far from civilization, it was less than 2 miles from downtown. I would be willing to pay a premium for internet access, but in the current competition model, operators simply don’t care about customers in less dense areas. This is in Brazil, but I’m sure lots of Americans can relate to my story.
