@@ -1,5 +1,5 @@
 theme: jekyll-theme-minimal
 title: Allan's blog
-author: Allan
+author: Allan Vidal
 plugins:
   - jekyll-seo-tag
