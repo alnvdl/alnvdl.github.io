@@ -33,7 +33,7 @@ footer {
     position: initial;
 }
 
-.post-item {
+.post-item:not(:last-of-type) {
     margin-bottom: 25px;
 }
 
