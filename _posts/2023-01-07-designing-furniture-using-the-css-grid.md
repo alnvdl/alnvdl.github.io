@@ -5,7 +5,7 @@ date: "2023-01-07 14:00:00 -0300"
 excerpt: The story of why and how I developed a tool for designing MDF furniture by writing my own little language that transpiles into a CSS grid layout.
 ---
 
-*For the busy: there's a TL;DR at the end. Live example: https://alnvdl.github.io/squareplanner/*
+*Live example: [https://alnvdl.github.io/squareplanner/](https://alnvdl.github.io/squareplanner/)*
 
 At one point during the construction of my house, we needed designs for the kitchen and bathroom cabinets and a bedroom wardrobe.
 
@@ -80,7 +80,7 @@ Finally, it was getting really annoying coding in that language, full of whitesp
 
 And that's it. I spent around 5 evenings working on this. I think I would actually have spent more time dragging rectangles with my wife in Illustrator, given how slow we were (and how much we were arguing over every decision). At least with this tool, it became extremely cheap to prototype weird cabinet designs together, only to realize they were actually not that bad.
 
-You can play with this tool yourself: https://alnvdl.github.io/squareplanner/
+You can play with this tool yourself: [https://alnvdl.github.io/squareplanner/](https://alnvdl.github.io/squareplanner/)
 
 There is no server-side code, just static HTML, JavaScript and CSS, and it is hosted as a static page.
 
@@ -89,7 +89,3 @@ It's not written using any frameworks, if you push it too hard it will draw weir
 In the end, the person designing the furniture in the 3D CAD had very few questions and was able to do their work. This design was also used by the company making the countertops, and we also used it throughout the construction process to help define where to place power outlets and pipes behind the cabinets (yes, we took the whole "design the house of your dreams" thing a bit too seriously).
 
 And the end result was exactly as we wanted. I'm sharing this in the hope that it can be useful for someone else in the same situation as I was, or maybe help someone who is learning about the CSS grid layout.
-
----
-
-TL;DR: I developed a tool for designing MDF furniture by writing my own little language that transpiles into a CSS grid layout. See: https://alnvdl.github.io/squareplanner/.
