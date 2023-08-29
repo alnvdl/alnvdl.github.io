@@ -1,5 +1,7 @@
 theme: jekyll-theme-minimal
 title: Allan's blog
 author: Allan Vidal
+url: https://alnvdl.github.io
 plugins:
   - jekyll-seo-tag
+  - jekyll-feed
