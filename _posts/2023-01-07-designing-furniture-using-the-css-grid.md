@@ -5,6 +5,7 @@ date: "2023-01-07 14:00:00 -0300"
 excerpt: The story of why and how I developed a tool for designing MDF furniture by writing my own little language that transpiles into a CSS grid layout.
 ---
 
+![A screenshot of the squareplanner web-based furniture design tool](/assets/img/squareplanner_screenshot.png)
 *Live example: [https://alnvdl.github.io/squareplanner/](https://alnvdl.github.io/squareplanner/)*
 
 At one point during the construction of my house, we needed designs for the kitchen and bathroom cabinets and a bedroom wardrobe.
