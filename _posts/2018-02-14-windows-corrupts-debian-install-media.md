@@ -2,7 +2,7 @@
 layout: post
 title: "Windows corrupts Debian install media"
 date: "2018-02-14 14:00:00 -0200"
-excerpt: A tale of two operating systems and one really silly issue
+excerpt: A tale of two operating systems and one really silly issue.
 ---
 
 A few weeks ago I downloaded the Debian net install image, [verified it](https://www.debian.org/CD/verify), flashed it to a flash drive (using `dd`), verified again after flashing (`head ... | sha512sum`). The checksum was correct, and I proceeded to install Debian as usual.

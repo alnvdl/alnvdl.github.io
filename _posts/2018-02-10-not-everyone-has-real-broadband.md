@@ -2,7 +2,7 @@
 layout: post
 title: "Not everyone has real broadband"
 date: "2018-02-10 14:00:00 -0200"
-excerpt: A plea for developers and designers to remember those of us with cringeworthy internet speeds
+excerpt: A plea for developers and designers to remember those of us with cringeworthy internet speeds.
 ---
 
 Brazil, like the US, is a country of continental proportions and diversity. And much like in the US, internet access is not that great: slow speeds, high prices, and very few alternatives. That is, assuming you have an alternative to begin with.
