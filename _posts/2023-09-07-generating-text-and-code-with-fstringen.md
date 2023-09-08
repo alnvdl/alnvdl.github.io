@@ -7,7 +7,7 @@ excerpt: Or the tale of how I bent Python in dangerous and obscure ways.
 
 Automating repetitive text or code generation is a problem that many programmers eventually face. Generally, there are two parts to this problem: **modeling** your ideas, and then **generating** code or text from them.
 
-On the modeling side, DSLs and specifications like OpenAPI focus on standardizing on a common structure for expressing ideas in a given domain (e.g, web APIs in the case of OpenAPI). On the generation side, the most common idea is using templating languages. Sometimes, programming languages themselves provide abstractions like generics that are ultimately a way of writing code or text based on a model.
+On the modeling side, DSLs and specifications like OpenAPI focus on standardizing on a common structure for expressing ideas in a given domain (e.g, web APIs in the case of OpenAPI). On the generation side, the most common idea is using templating languages. Stretching the argument a bit, generics, as present in several programming languages, can ultimately be seen as a way of automating code generation based on a model defined by the language itself.
 
 One could say compilers are solving just this problem: they take a model (the programming language you are using) and generate some other artifact (code in another programming language, machine code, etc). Compilers will typically parse their input, build an internal representation of the language (e.g., an [abstract syntax tree](https://en.wikipedia.org/wiki/Abstract_syntax_tree)), and then use that to generate the target code.
 
@@ -23,7 +23,7 @@ To go with a lazy approach like this, we have 3 problems to solve:
 
 ---
 
-Python introduced f-strings with Python 3.6, back in 2016. Seeing some code using f-strings, it reminded me of a templating language. More interestingly, triple-quote multi-line strings could be made into f-strings. That's the beginning of a promising templating language!
+Python introduced f-strings with Python 3.6, back in 2016. When I first saw f-strings, they reminded me of a templating language. More interestingly, triple-quoted multi-line strings could be made into f-strings. That's the beginning of a promising templating language!
 
 That got me thinking I could perhaps develop something that would help in solving the three problems listed above.
 
@@ -118,6 +118,6 @@ Recapping, the hacks were:
 
 This is how [fstringen](https://github.com/alnvdl/fstringen) was born. It has no dependencies and (I hope) good enough informal documentation in its [README](https://github.com/alnvdl/fstringen#readme). Considering all the weird things it does, I wouldn't personally use it in anything other than code that's purely acting as a generator for code or text.
 
-fstringen was sparked by learning about f-strings in Python. Learning React and JSX also made me think about how I could imitate the way React produces a component tree from JavaScript functions or classes, but with Python functions producing text or code instead. The path syntax and the `select` operation is inspired by both OpenAPI and also by a project I participated in a few years ago in a previous job, where some really smart engineers used the TCL language to model network devices and generate C code. If you know TCL, you are probably laughing at this post and its complexity.
+fstringen was sparked by learning about f-strings in Python. Learning React and JSX also made me think about how I could imitate the way React produces a component tree from JavaScript functions or classes, but with Python functions producing text or code instead. The path syntax and the `select` operation is inspired by both OpenAPI and also by a project I participated in a previous job a few years ago, where some really smart engineers used the TCL language to model network devices and generate C code. If you know TCL, you are probably laughing at this post and its complexity.
 
 Since I wrote fstringen, I've used to implement a couple of (non-open-source) model-generators: an extremely barebones subset of [Confluent's Schema Registry](https://docs.confluent.io/platform/current/schema-registry/index.html) and a tool for automating the generation of certain reports about projects. It should be quite easy to use it for generating API code based on OpenAPI specs as well, but I haven't tried it yet.
