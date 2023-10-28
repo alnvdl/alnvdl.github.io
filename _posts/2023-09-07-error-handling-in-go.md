@@ -9,9 +9,9 @@ Let's talk about error handling in Go, in 3 acts.
 
 ## A bit of history
 
-Error handling in Go is a topic that divides opinions. Some people hate that their code ends up full of error checks. Others argue that's precisely the point: [errors are simple return values](https://go.dev/blog/errors-are-values), and these return values should of course affect your code.
+Error handling in Go is a topic that divides opinions. Some people hate that their code ends up full of error checks. Others argue that's precisely the point: [errors are simply return values](https://go.dev/blog/errors-are-values), and these return values should of course affect the flow of your code.
 
-I never really had a strong opinion about this. One thing I knew is that I always considered exceptions in other programming languages a bit weird. That's because they can end up being caught in distant places across the stack. But I also didn't nurture strong feelings of love or hatred for exceptions :)
+I never really had a strong opinion about this. I knew I always considered exceptions in other programming languages a bit weird because they can end up being caught in distant places across the stack; but I didn't nurture strong feelings of love or hatred for exceptions either.
 
 I started using Go in version 1.12 at work, a few weeks before version 1.13 was released. The library we used in the projects I worked in was [errgo](https://pkg.go.dev/gopkg.in/errgo.v1) (v1). Due to inertia (and fear of breaking things), we still use errgo in 2023.
 

@@ -9,7 +9,7 @@ Automating repetitive text or code generation is a problem that many programmers
 
 On the modeling side, DSLs and specifications like OpenAPI focus on standardizing on a common structure for expressing ideas in a given domain (e.g, web APIs in the case of OpenAPI). On the generation side, the most common idea is using templating languages. Stretching the argument a bit, generics, as present in several programming languages, can ultimately be seen as a way of automating code generation based on a model defined by the language itself.
 
-One could say compilers are solving just this problem: they take a model (the programming language you are using) and generate some other artifact (code in another programming language, machine code, etc). Compilers will typically parse their input, build an internal representation of the language (e.g., an [abstract syntax tree](https://en.wikipedia.org/wiki/Abstract_syntax_tree)), and then use that to generate the target code.
+One could say compilers are solving just this problem: they take a model (code in the programming language you are using) and generate some other artifact (code in another programming language, machine code, etc). Compilers will typically parse their input, build an internal representation of the language (e.g., an [abstract syntax tree](https://en.wikipedia.org/wiki/Abstract_syntax_tree)), and then use that to generate the target code.
 
 But not everyone has the need, time or skills to formally define a language and write a compiler, even if using tools like [Lex](https://en.wikipedia.org/wiki/Lex_(software)) and [Yacc](https://en.wikipedia.org/wiki/Yacc). More often than not, all we can afford is quick-and-dirty :)
 
