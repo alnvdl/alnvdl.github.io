@@ -27,11 +27,7 @@ Even with Go's ever evolving approach to error handling and clever 3rd party lib
 
 **I know it because I've seen these mistakes being made. I know it because I've made these mistakes myself.** So here's my attempt at making amends for all the mistakes I've made.
 
-These mistakes can happen when just using Go's standard library and vanilla error wrapping. They can also happen when using 3rd party error libraries. I believe one of the causes of this problem is that in most popular programming languages, exceptions are the norm. And with exceptions, it's usually standard bad practice to just let things explode and get a stack trace somewhere later. In other words, if you forget about error handling in most programming languages, something will take care of it for you. And then your users will get a very weird message or an odd-looking webpage spilling the guts of your stack.
-
-Go on the other hand invites you to *really* think about error handling. But people aren't trained to think of petty, sad things such as errors!
-
-I won't go over all the possible things that people do wrong (that would be an infinite list). Instead, I will suggest some good practices -- or at least, my interpretation of them from reading some official Go resources. The information condensed below was extracted from multiple official Go sources, where I think it's a bit dispersed and hard to piece together:
+I won't go over all the possible things that can go wrong (that would be a very large list). Instead, I will suggest some good practices and contrast them with some negative examples -- or at least, my interpretation of positive and negative based on reading some official Go resources. The information condensed below was extracted from multiple official Go sources, where I think it's all a bit dispersed and hard to piece together:
 - [https://go.dev/blog/error-handling-and-go](https://go.dev/blog/error-handling-and-go)
 - [https://go.dev/blog/errors-are-values](https://go.dev/blog/errors-are-values)
 - [https://go.dev/blog/go1.13-errors](https://go.dev/blog/go1.13-errors)
@@ -42,7 +38,7 @@ So here we go:
 
 1. When handling errors in Go, we have 3 options:
 - **handle it**: if you detect an error, you can take some corrective action (e.g., retry), ignore it on purpose (do nothing about it), or perhaps translate it to another error that is defined by your own package. If you ignore it on purpose, it may be a good idea to leave a comment explaining that it is not an accidental mistake.
-- **wrap it**: for some errors, it might make sense to let your callers know the type or value of the error. You should wrap errors from your own packages (see #4), and you may wrap errors coming from other packages (perhaps from a 3rd party or from the standard library). For wrapping errors, you should use `fmt.Errorf` with the `%w` verb.
+- **wrap it**: for some errors, it might make sense to let your callers know the type or value of the error. You should wrap errors from your own packages (see #4), and you may wrap errors coming from other packages (perhaps from a 3rd party or from the standard library). For wrapping errors, you should use `fmt.Errorf` with the `%w` verb. For example, you may wrap errors from your own packages (e.g., `ErrDuplicate` defined by you), or you may choose to wrap errors from another package, such as `fs.ErrNotExist`. Be parsimonious though: every error you wrap ends up becoming part of your contract with your callers. This will be further discussed below.
 - **mask it**: sometimes, an error happens because of another error, but a function can't let callers inspect that original error, because that would make these callers dependent on the source of the original error. For example, let's say you have a `store` package that happens to use the [sql](https://pkg.go.dev/database/sql) package as an implementation detail. If you let callers check against `sql.ErrNoRows`, you can't simply port your `store` package to that fancy new NoSQL database without continuing to return `sql.ErrNoRows`, or your risk breaking your callers. For masking errors, you should use `fmt.Errorf` with the `%v` verb.
 
 2. Sometimes you will see references to **sentinel errors** when talking about errors in Go. A sentinel error is one that is defined with a fixed value by a package. For example, [`http.ErrBodyNotAllowed`](https://cs.opensource.google/go/go/+/refs/tags/go1.21.1:src/net/http/server.go;l=41) is a sentinel error. You can also make your own sentinel errors by defining them somewhere in a package:
@@ -51,7 +47,7 @@ So here we go:
     var ErrValidation = errors.New("validation error")
     ```
 
-    As far as I've seen, sentinel errors are usually named starting with `Err`. Callers trying to detect a sentinel error should use `errors.Is(err, mypackage.ErrValidation)`.
+    Based on my observations so far, sentinel errors are usually named starting with `Err`. Callers trying to detect a sentinel error should use `errors.Is(err, mypackage.ErrValidation)`.
 
 3. Other times, you will see references to **error types**. An error type is a struct that implements the [`error` interface](https://go.dev/blog/error-handling-and-go#the-error-type). For example, [fs.PathError](https://pkg.go.dev/io/fs#PathError) is an error type. You can define your own error types like this:
 
@@ -65,7 +61,7 @@ So here we go:
     }
     ```
 
-    As far as I've seen, error types are usually named ending with `Error`. Callers trying to detect an error of a specific type could use `errors.Is(err, mypackage.ErrValidation)` if supported by that error type (see #4 below), but more commonly they will use code like this:
+    Based on my observations so far, error types are usually named ending with `Error`. Callers trying to detect an error of a specific type could use `errors.Is(err, mypackage.ErrValidation)` if supported by that error type (see #4 below), but more commonly they will use code like this:
     ```go
     var vErr *mypackage.ValidationError
     if errors.As(err, &vErr) {
@@ -94,7 +90,7 @@ So here we go:
     }
     ```
 
-    Most importantly, you can later decide that Validate will return a `ValidationError` to provide more details for callers that want it:
+    Most importantly, by wrapping a sentinel, you can later decide that `Validate` will return a `ValidationError` to provide more details for callers that want it, without breaking old clients:
     ```go
     var ErrValidation = errors.New("validation error")
 
@@ -108,6 +104,8 @@ So here we go:
     }
 
     func (e *ValidationError) Is(err error) bool {
+        // This makes the custom error type compatible with callers who are
+        // using errors.Is.
         return err == ErrValidation
     }
 
@@ -119,7 +117,7 @@ So here we go:
     }
     ```
 
-    And that original code using `errors.Is(err, mypackage.ErrValidation)` will work as if nothing had happened. The day that caller decides it needs to know the field that failed validation, it can then start using `errors.As` as explained in #3 above.
+    The day that caller decides it needs to know the field that failed validation, it can then start using `errors.As` as explained in #3 above.
 
 5. Avoid sentinels or error types with complex or very specific names:
    - `ErrAccountNotFound` (sentinel error): bad
@@ -128,7 +126,7 @@ So here we go:
    - `NotFoundError` (error type): good
 
    There are a couple of reasons for this:
-   - As a code base grows, keeping this practice avoids an excessive number of sentinels or error types that ultimately all indicate the same thing. Try to think if `ErrAccountNotFound` isn't a subcase of the more generic `ErrValidation` for example.
+   - As a code base grows, keeping this practice avoids an excessive number of sentinels or error types that ultimately all indicate the same thing. Consider if `ErrAccountNotFound` isn't a subcase of the more generic `ErrValidation`, for example.
    - If you do need to provide more details about `ErrNotFound`, these details could go into an error type named `NotFoundError` instead.
 
 6. If you find yourself always wrapping the same sentinel error, it might make sense to write a non-exported function for building it:
@@ -140,7 +138,7 @@ So here we go:
 
 7. Since errors are just values, you should always document the errors returned by your exported functions, be it sentinels or error types. A simple mention of "May return ErrValidation." in the Godoc comment for the function is usually enough. And when changing previously existing code, make sure to keep documentation updated: that's part of the job.
 
-8. When in doubt between using `%w` and `%v`, go with `%v`. It's easy to expose something later with `%w` than to hide it by moving to `%v`. Errors are part of the contract of your package, and it's always a good idea to make this contract as simple as possible.
+8. When in doubt between using `%w` and `%v`, go with `%v`. It's easier to expose something later with `%w` than to hide it by moving to `%v`. Errors are part of the contract of your package, and it's always a good idea to make this contract as simple as possible.
 
 9. When writing code with multiple layers under your direct control, avoid just wrapping errors along the way. For example, if the `api` package uses the `backend` package that then uses the `store` package, the functions in the `api` package shouldn't be able to check for errors from the `store` using `errors.Is` or `errors.As`. Keeping this practice helps keep layers separate, and eases refactorings later on.
 
@@ -156,7 +154,7 @@ Unfortunately, Go doesn't say much about this problem. But with just Go 1.20+ fe
 1. The ability to implement custom `Is(error) bool`, `As(any) bool` and `Unwrap() error` functions in error types (introduced in Go 1.13).
 2. The ability to retrieve custom verbs when implementing `fmt.Formatter` (introduced in Go 1.20).
 
-And the library that implements this is [terr](https://pkg.go.dev/github.com/alnvdl/terr):
+And the library that implements this is [`terr`](https://pkg.go.dev/github.com/alnvdl/terr):
 
 ```go
 ErrValidation := errors.New("validation error")
@@ -173,7 +171,7 @@ cannot fulfill request: validation error: data: too long @ /tmp/sandbox132257099
 	validation error: data: too long @ /tmp/sandbox1322570992/prog.go:12
 ```
 
-It only exports four functions, and most of the time you can get away with using just one: `terr.Newf`, which has the same signature and works like `fmt.Errorf`. I tried to make the [documentation](https://pkg.go.dev/github.com/alnvdl/terr) as detailed as possible, with lots of examples, including for the other three more specialized functions.
+`terr` only exports four functions, and most of the time you can get away with using just one: `terr.Newf`, which has the same signature and works like `fmt.Errorf`. I tried to make the [documentation](https://pkg.go.dev/github.com/alnvdl/terr) as detailed as possible, with lots of examples, including for the other three more specialized functions.
 
 My dream is that one day terr will be deemed redundant, because Go will have added error tracing natively.
 
