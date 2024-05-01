@@ -118,7 +118,7 @@ To add a new repository, the entire codespace needs to be recreated. I usually j
 ## Installing more things
 For some of the software I install (e.g., Go, NodeJS), I prefer to download them directly from their official websites to get the latest versions.
 
-To do that, I wrote the `create.sh` script, which downloads, checksums and install these toos locally in my `dev` folder.
+To do that, I wrote the `create.sh` script, which downloads, checksums and install these tools locally in my `dev` folder.
 
 I then set that script to run when the codespace is created in `devcontainer.json`:
 ```jsonc
@@ -216,4 +216,4 @@ To access a service running on a workspace, see [Forwarding ports in your codesp
 ## Bonus: developing GTK applications
 GTK ships with a display server called Broadway that can render graphical applications in an HTML canvas and serve it in a page. It works perfectly with a codespace, as can be seen in the screenshot illustrating this post.
 
-It's [very easy to get started with Broadway](https://docs.gtk.org/gtk3/broadway.html), and once it is running, you just need to perform [port forwarding](#accessing-services).
+It's [very easy to get started with Broadway](https://docs.gtk.org/gtk3/broadway.html), and once it is running, you just need to set up [port forwarding](#accessing-services).

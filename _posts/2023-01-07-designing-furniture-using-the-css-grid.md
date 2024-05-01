@@ -16,7 +16,7 @@ People usually pay specialized professionals (or companies) to design and build 
 
 As we did with the house blueprint, we wanted full control over every part of the design. We found it's much easier to make the designs ourselves, rather than imposing vetoes and "suggestions" on a designer's work, which can be annoying for both the designer and for ourselves.
 
-I wasn't going to learn a bespoke 3D CAD software just for this. But I still needed a way to clearly communicate my ideas to the person designing and overseeing the manufacturing of our furniture. 2D was enough, as the depth of the furniture was fixed, dependent on where it is being placed.
+I wasn't going to learn a bespoke 3D CAD software just for this. But I still needed a way to clearly communicate my ideas to the person designing and overseeing the manufacturing of our furniture. 2D was enough, as the depth of the furniture was fixed, dependent on where it gets placed.
 
 My wife started drawing her ideas in Adobe Illustrator, but it was hard work. So you just noticed you need to add a new drawer? Now you have to redraw and move the other pieces around. Did you just realize that your stand mixer won't fit in a module that is only 35cm tall? You may need to rethink the whole cabinet... My wife and I would discuss an idea, and then it'd take her some manual work to redraw the whole thing. Repeat that a few times, and we were spending a lot of time on this.
 
@@ -24,7 +24,7 @@ One important realization struck me when looking at her designs though: most of 
 
 At first I thought of writing a Python script that would take a text description, calculate a few things and output measurements in text. But that would not be very visual, so it was hard to grasp for both ourselves and the furniture designers. Plus, I'd have to write some code that fits rectangles. I was losing motivation, as it would require some non-trivial work, and the end result would not look nice anyway. Was there any software I knew that did at least some of this work for me?
 
-**What if I could be lazy and reuse an existing calculation engine, while at the same time getting a nice graphical output?** Of course, I later realized that instead of writing a calculator I ended up having to write a transpiler, but then I was too involved by then to give up.
+**What if I could be lazy and reuse an existing calculation engine, while at the same time getting a nice graphical output?** Of course, I later realized that instead of writing a calculator I ended up having to write a transpiler, but by then I was too involved to give up.
 
 It turns out that fitting rectangles if basically what modern web browers do. Web developers and designers have been fitting rectangles in complex ways for a while now with concepts such as the CSS [flexbox](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Flexible_Box_Layout/Basic_Concepts_of_Flexbox) and [grid](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Grid_Layout) layouts. Professionally, I'm mostly a backend developer, but I venture myself in web development from time to time, and I had read great things about the CSS grid layout, so I decided to give it a try.
 
