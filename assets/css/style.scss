@@ -70,6 +70,10 @@ a:hover, a:focus {
   font-weight: normal;
 }
 
+strong > a:hover, strong > a:focus {
+    font-weight: bold;
+}
+
 blockquote {
     font-size: 1.8em;
 }
