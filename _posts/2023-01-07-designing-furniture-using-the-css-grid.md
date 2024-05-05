@@ -16,7 +16,7 @@ People usually pay specialized professionals (or companies) to design and build 
 
 As we did with the house blueprint, we wanted full control over every part of the design. We found it's much easier to make the designs ourselves, rather than imposing vetoes and "suggestions" on a designer's work, which can be annoying for both the designer and for ourselves.
 
-I wasn't going to learn a bespoke 3D CAD software just for this. But I still needed a way to clearly communicate my ideas to the person designing and overseeing the manufacturing of our furniture. 2D was enough, as the depth of the furniture was fixed, dependent on where it gets placed.
+I wasn't going to learn a bespoke 3D CAD software just for this. But I still needed a way to clearly communicate my ideas to the person designing and overseeing the manufacturing of our furniture. 2D was enough, as the depth of the furniture depends on where it gets placed.
 
 My wife started drawing her ideas in Adobe Illustrator, but it was hard work. So you just noticed you need to add a new drawer? Now you have to redraw and move the other pieces around. Did you just realize that your stand mixer won't fit in a module that is only 35cm tall? You may need to rethink the whole cabinet... My wife and I would discuss an idea, and then it'd take her some manual work to redraw the whole thing. Repeat that a few times, and we were spending a lot of time on this.
 
@@ -59,7 +59,7 @@ cabinet 200cm x 95cm top 3cm bottom 14cm scale 5
 In this example we can see a few new things:
 - `*` means "I don't care, make it fit for me";
 - A number followed by `cm` is a required width or height (in centimeters);
-- `<`, `>` and `^` are saying "continue whatever is to the left/right/above";
+- `<`, `>` and `^` are saying "continue whatever is to the left/right or above";
 - Adding `:red`, `:green` or `:blue` after the name of a rectangle makes it have that color;
 - The `scale` is mostly a hacky way of hinting how big things should be so that labels fit into rectangles;
 
@@ -73,7 +73,7 @@ I also needed a way to easily share this with the person designing the furniture
 
 When sharing a design, I didn't want people opening the page and accidentally pressing keys in the editor, breaking my carefully laid out rectangles and then delivering me a cabinet with giant drawers. If you press `Ctrl`+`Alt`+`L` on the page, it will lock the text area to prevent editing, and persist that lock state into the URL so it can be safely shared.
 
-Ah, and I also realized it would be useful to have comments for myself and for the people reading the designs. So I added comments to the mini language (lines beginning with `#`). And colors too, as I needed to highlight a few things in the diagram so people could relate them to the comments (for example, `drawed:red` will make a red drawer).
+Ah, and I also realized it would be useful to have comments for myself and for the people reading the designs. So I added comments to the mini language (lines beginning with `#`). And colors too, as I needed to highlight a few things in the diagram so people could relate them to the comments (for example, `drawer:red` will make a red drawer).
 
 And I'd need to print and export this to PDF, to carry with me, make notes and adaptations as I decided on the designs. So there's a bit of CSS for adapting the page for nicer print output, and the browser then takes care of printing to PDF.
 
@@ -81,11 +81,11 @@ Finally, it was getting really annoying coding in that language, full of whitesp
 
 And that's it. I spent around 5 evenings working on this. I think I would actually have spent more time dragging rectangles with my wife in Illustrator, given how slow we were (and how much we were arguing over every decision). At least with this tool, it became extremely cheap to prototype weird cabinet designs together, only to realize they were actually not that bad.
 
-You can play with this tool yourself: [https://alnvdl.github.io/squareplanner/](https://alnvdl.github.io/squareplanner/)
+**You can play with this tool yourself: [https://alnvdl.github.io/squareplanner/](https://alnvdl.github.io/squareplanner/)**
 
 There is no server-side code, just static HTML, JavaScript and CSS, and it is hosted as a static page.
 
-It's not written using any frameworks, if you push it too hard it will draw weird things, it's not formally tested, and it does not follow a particularly academic/professional approach to the transpilation process. I guess making it more "professional" would have been perfectly fine, but in this case I just wanted to get my furniture designed fast, and keeping the code simple and small helped in that. At the time I designed this, I had dozens of other problems to solve in the construction. Looking at the end result, it's amazing to to see all the complexity supported by modern browsers, which enable an application like this to be written in just ~550 non-minified LOC (or ~18KB).
+It's not written using any frameworks, if you push it too hard it will draw weird things, it's not unit- or integration-tested, and it does not follow a particularly academic or professional approach to the transpilation process. I guess making it more "serious" would have been possible, but in this case I just wanted to get my furniture designed fast, and keeping the code simple and small helped in that. At the time I designed this, I had dozens of other problems to solve in the construction. Looking at the end result, it's amazing to to see all the complexity supported by modern browsers, which enable an application like this to be written in just ~550 non-minified LOC (or ~18KB).
 
 In the end, the person designing the furniture in the 3D CAD had very few questions and was able to do their work. This design was also used by the company making the countertops, and we also used it throughout the construction process to help define where to place power outlets and pipes behind the cabinets (yes, we took the whole "design the house of your dreams" thing a bit too seriously).
 
