@@ -19,11 +19,11 @@ During all these years behind shitty internet links, I noticed a few things that
 
 This wasn't so much of a problem some years ago, but it seems that as time goes by and everyone gets very fast internet access, showing download/upload information in the UI has become a thing of the past. "Please wait" is not really useful when you have slow internet (you're pretty much waiting most of the time anyway).
 
-Knowing the download rate can help determine when you need to yell at another household member to stop watching cute dog videos. Download size and time-left estimations are also really useful so you can decide whether to go for a cup of coffee, for a walk, or even go get some sleep :-)
+Knowing the download rate can help determine when you need to yell at another household member to stop watching cute dog videos. Download size and time-left estimations are also really useful so you can decide whether to go for a cup of coffee, for a walk, or even go get some sleep...
 
 Windows Update and some other Microsoft tools exhibit this problem to an annoying degree, but I'm seeing the disapperance of download/upload information in other software and OS as well. One partial workaround is to open a system monitoring tool to check the network speed, but that not very informative nor convenient.
 
-I understand there's a trend towards simplification of user interfaces, and grandma doesn't really care that Windows Update is downloading 450 MB at 2 MB/s. But there are other ways this could be shown, perhaps as tooltips, or expandable interface elements. It wouldn't hurt anyone, but it'd certainly make some people happier :-)
+I understand there's a trend towards simplification of user interfaces, and grandma doesn't really care that Windows Update is downloading 450 MB at 2 MB/s. But there are other ways this could be shown, perhaps as tooltips, or expandable interface elements. It wouldn't hurt anyone, but it'd certainly make some people happier.
 
 **Constant app updates**
 
@@ -65,6 +65,6 @@ One time I noticed download speeds were worse than usual. I opened the Task Mana
 
 The experience of a sizeable portion of your users will be improved if you develop your application, website or service with these things in mind. When designing a user interface, or adding a feature that seems automagic, or when asking your users to update your application, always ask yourself: what if I had only 10% of the bandwidth I have now? I guarantee many people will be positively affected by the design choices you make after answering that question.
 
-For those who may be wondering: despite the problems I mentioned above, the online experience in 2018 is ok at 4 Mbps. You get to watch Netflix (1 stream at 720p is fine, 2 simultaneous streams causes noticeable quality loss). You can download and play games online if you are willing to wait a bit, and two or three people can browse the web comfortably at the same time. Sometimes you have to yell at your relatives because you need to load something fast. And if you don’t use your LAN that much, you can get away with pretty much any wifi router: I swear it won’t be slower than your WAN connection, not even behind lead walls :-)
+For those who may be wondering: despite the problems I mentioned above, the online experience in 2018 is ok at 4 Mbps. You get to watch Netflix (1 stream at 720p is fine, 2 simultaneous streams causes noticeable quality loss). You can download and play games online if you are willing to wait a bit, and two or three people can browse the web comfortably at the same time. Sometimes you have to yell at your relatives because you need to load something fast. And if you don’t use your LAN that much, you can get away with pretty much any wifi router: it won’t be slower than your WAN connection, not even behind lead walls :-)
 
 And as for why I don’t simply move to another place with faster internet: 1) I have, this is an epilogue to my experience and 2) it’s not like I lived that far from civilization, it was less than 2 miles from downtown. I would be willing to pay a premium for internet access, but in the current competition model, operators simply don’t care about customers in less dense areas. This is in Brazil, but I’m sure lots of Americans can relate to my story.
