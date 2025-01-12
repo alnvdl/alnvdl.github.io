@@ -75,7 +75,7 @@ def mystring():
     """
 ```
 
-Calling `mystring()` returns `\n    a line\n    another line\n    `. Notice the includes the indentation and newlines.
+Calling `mystring()` returns `\n    a line\n    another line\n    `. Note this includes the indentation and newlines.
 
 Instead, I wanted the behavior we imagine the first time we accidentally use triple-quoted strings: `mystring()` should return `a line\nanother line`, as if the function indent didn't count.
 
@@ -113,11 +113,11 @@ So through some serious Python hackery, I was able to implement a model-based ge
 Recapping, the hacks were:
 
 - Rewriting decorated functions on-the-fly using the [`inspect` module](https://docs.python.org/3/library/inspect.html);
-- Dedenting triple-quoted f-strings in those decorated functions using regexes;
+- Dedenting triple-quoted f-strings in these decorated functions using regexes;
 - Introducing a suspiciously magic way of browsing Python dictionaries and lists that involves an even more awkward usage than usual of Python's [metaclasses](https://docs.python.org/3/reference/datamodel.html#metaclasses) feature;
 
 This is how [fstringen](https://github.com/alnvdl/fstringen) was born. It has no dependencies and (I hope) good enough informal documentation in its [README](https://github.com/alnvdl/fstringen#readme). Considering all the weird things it does, I wouldn't personally use it in anything other than code that's purely acting as a generator for code or text.
 
 fstringen was sparked by learning about f-strings in Python. Learning React and JSX also made me think about how I could imitate the way React produces a component tree from JavaScript functions or classes, but with Python functions producing text or code instead. The path syntax and the `select` operation is inspired by both OpenAPI and also by a project I participated in a previous job a few years ago, where some really smart engineers used the TCL language to model network devices and generate C code. If you know TCL, you are probably laughing at this post and its complexity.
 
-Since I wrote fstringen, I've used to implement a couple of (non-open-source) model-generators: an extremely barebones subset of [Confluent's Schema Registry](https://docs.confluent.io/platform/current/schema-registry/index.html) and a tool for automating the generation of certain reports about projects. It should be quite easy to use it for generating API code based on OpenAPI specs as well, but I haven't tried it yet.
+Since I wrote fstringen, I've used it to implement a couple of (non-open-source) model-generators: an extremely barebones subset of [Confluent's Schema Registry](https://docs.confluent.io/platform/current/schema-registry/index.html) and a tool for automating the generation of certain reports about projects. It should be quite easy to use it for generating API code based on OpenAPI specs as well, but I haven't tried it yet.
