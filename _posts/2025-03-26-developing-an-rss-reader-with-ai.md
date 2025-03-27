@@ -34,9 +34,11 @@ In the end, I decided to not have a database, and just write to keep the entire 
 Along the way, I used Copilot to write tests and documentation. And now I have a better feed reader than I had, (practically) without external dependencies, infinitely faster (the in-memory thing really helps) and much more maintainable in the long term.
 
 ![The Varys feed reader showing the feed for this blog.](/assets/img/varys_screenshot.png)
-<br/>*The [Varys feed reader](https://github.com/alnvdl/varys) showing the feed for this blog.*
+<p class="caption">
+The <a href="https://github.com/alnvdl/varys">Varys feed reader</a> showing the feed for this blog.
+</p>
 
-You can find the code and documentation here: https://github.com/alnvdl/varys
+You can find the code and documentation here: [https://github.com/alnvdl/varys](https://github.com/alnvdl/varys).
 
 ## On my experience with using AI for coding
 
@@ -46,6 +48,6 @@ Copilot (and AI tools in general) are not perfect by any means, and they still m
 
 Writing tests in particular is a great experience. I really enjoyed the process of thinking about the tests, telling Copilot to write them (listing all cases), and then going for a quick break. More often than not, I would come back to almost perfect results, requiring very little tweaking. Refactoring tests later was equally a breeze.
 
-I can see people seeing this kind of tooling and thinking it replaces software engineers. When paying for a software engineer, one is actually paying for building knowledge, not just for coding. The code is just a way to encode that knowledge. And now with LLMs, we have a new, much improved way to get computers to encode knowledge.
+I can imagine people seeing this kind of tooling and thinking it replaces software engineers. But when paying for a software engineer, one is actually paying for building knowledge, not just for coding. The code is just a way to encode that knowledge. And now with LLMs, we have a new, much improved way to get computers to encode knowledge.
 
 It may very well be the case that soon we will have AIs capable of building knowledge iteratively and collaboratively. That will be the day when software engineers like myself (and other knowledge workers) will have to go fulfill their long-imagined dreams of owning a farm or starting a restaurant :-)
