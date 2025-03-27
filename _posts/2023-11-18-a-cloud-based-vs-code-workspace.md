@@ -22,7 +22,7 @@ Of course, both of these things could be done locally. But it's all so nicely bu
 
 This post was written in a codespace. The entire code for my VS Code workspace running on GitHub codespaces is available at [https://github.com/alnvdl/workspace](https://github.com/alnvdl/workspace).
 
-The sections below describe a few bits of knowledge I gathered while build this workspace.
+The sections below describe a few bits of knowledge I gathered while building this workspace.
 
 ## Creating the container image
 By default, GitHub Codespaces starts a container from a [generic image](https://github.com/microsoft/vscode-dev-containers/tree/main/containers/codespaces-linux) full of development tools for many different programming languages.
@@ -131,7 +131,7 @@ I then set that script to run when the codespace is created in `devcontainer.jso
 That script also installs a few other tools I use, such as `gopls` and `dlv`, and configures the shell prompt the way I like. It also sets up some locale-related environment variables to my preference.
 
 ## Starting background services
-By default, containers don't start services.
+By default, codespaces don't start services.
 
 So to start services like PostgreSQL and Redis, I created a `start.sh` script:
 ```bash
@@ -196,11 +196,9 @@ You can find the IDs for extensions in their marketplace pages (see the [Python 
 ## Fighting the browser
 If you use keyboard shortcuts like `Ctrl+W`, `Ctrl+T` or `Ctrl+N` in VS Code, your browser will intercept them, and that is unavoidable because a website cannot capture these shortcuts in regular mode.
 
-But it's easy to work around these limitations: go full-screen with `F11`. As a bonus, you will gain a few extra pixels :-)
+But it's easy to work around these limitations: install it as a web app.
 
-When pressing `F11`, make sure the browser's address bar focused (instead of VS Code having the focus), which will allow you to easily navigate out of the full-screen window with whatever keyboard shortcuts you have defined for that.
-
-If you press `F11` with VS Code focused or enable full-screen via VS Code itself, it will capture all keyboard shorcuts, even the ones used by your desktop environment.
+If you don't like that idea, you can also solve the problem by going full-screen with `F11`. As a bonus, you will gain a few extra pixels :-) When pressing `F11`, make sure the browser's address bar focused (instead of VS Code having the focus), which will allow you to easily navigate out of the full-screen window with whatever keyboard shortcuts you have defined for that. If you press `F11` with VS Code focused or enable full-screen via VS Code itself, it will capture all keyboard shorcuts, even the ones used by your desktop environment.
 
 ## Persisting shell history
 I didn't find a reasonable solution for that. If your codespace gets deleted due to inactivity or because [you needed to add a new repository](#working-with-more-than-one-repository), the entire shell history will be lost.

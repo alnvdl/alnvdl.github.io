@@ -33,6 +33,7 @@ I won't go over all the possible things that can go wrong (that would be a very 
 - [https://go.dev/blog/go1.13-errors](https://go.dev/blog/go1.13-errors)
 - [https://github.com/golang/go/wiki/ErrorValueFAQ](https://github.com/golang/go/wiki/ErrorValueFAQ)
 - [https://pkg.go.dev/errors](https://pkg.go.dev/errors)
+- [https://go.dev/wiki/Errors](https://go.dev/wiki/Errors)
 
 So here we go:
 
