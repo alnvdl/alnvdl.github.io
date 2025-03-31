@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Developing a feed reader with AI"
+title: "Developing a feed reader with an AI assistant"
 date: "2025-03-26 22:58:00 -0300"
 excerpt: How I defeated inertia and (re)wrote a feed reader using GitHub Copilot.
 ---
@@ -15,11 +15,11 @@ I then moved on to Feedly, which was nice, but it just didn't have that same fee
 
 I am cheap and didn't want to pay for a feed reader, so I was bound to be disappointed by ads eventually. I also wanted a (web?) app that could be used on both my desktop and on my phone. I never had too many feeds: usually the number floated around 30.
 
-That's when I started toying with the idea of writing my own feed reader, in a way that could be self-hosted in the free tiers offered by PaaS providers, namely Heroku. I went with Python + Postgres, and in a couple of days I had a functional feed reader. I didn't devote much effort, did not write tests for it, and built just a minimal API and a single HTML file with some JavaScript as the web app. I kept on using that small reader I developed from early 2021 for years. When Heroku ended their free tier, I moved it to Azure App Services, using SQLite.
+That's when I started toying with the idea of writing my own feed reader, in a way that could be self-hosted in the free tiers offered by PaaS providers, namely Heroku. I went with Python + Postgres, and in a couple of days I had a functional feed reader. I didn't devote much effort, did not write tests for it, and built just a minimal API and a single HTML file with some JavaScript as the web app. I kept on using that feed reader for years. When Heroku ended their free tier, I moved it to Azure App Services, using SQLite.
 
 But then Mozilla deprecated the [bleach](https://github.com/mozilla/bleach) HTML sanitization library I was relying on. And the performance of even very simple SQLite usage on the free tier of Azure became terrible -- think 10s+ to mark all feeds as read. For some reason, the Python container image used in Azure was also consuming a ton of resources, sometimes making the app exceed the free quota. So I had to breathe some life back into my feed reader.
 
-Back in 2020 I had only been using Go for a year, so I went with Python. By 2025, I had come to deeply admire the language and the culture around it. What if I rewrote it in Go? But I was demotivated by having to select dependencies again, and then rewrite the whole thing for what should just be a hobby project. That's when the AI hype finally struck me. I had been meaning to use [GitHub Copilot](https://github.com/features/copilot), and decided this might be a good use case for it.
+Back in 2020 I had only been using Go for a year, so I went with Python when writing the original reader. By 2025, I had come to deeply admire Go and the culture around it. So I wanted to rewrite it in Go, but I was demotivated by having to repeat all of the effort, select and learn new dependencies, etc. That's when the AI hype finally struck me. I had been meaning to use [GitHub Copilot](https://github.com/features/copilot), and decided this might be a good use case for it.
 
 I started with the most annoying part: the HTML sanitizer. I wanted something very simple to maintain, ideally something that would not be abandoned later. I tasked Copilot with writing one, inspired in the way I was invoking bleach in the Python-based feed reader. And in less than 2 hours of tweaking and thinking about the problem, I had a good-enough-for-me HTML sanitizer with decent test coverage, using nothing more than Go's `x/net` module. You can see it [here](https://github.com/alnvdl/varys/blob/main/internal/fetch/sanitize.go).
 
