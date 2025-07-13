@@ -6,10 +6,34 @@
 body {
     font: 18px/1.8 "Noto Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
     padding: 25px;
+    color: #373839;
 }
 
-.wrapper {
-    width: 720px;
+a {
+    color: #4981BA;
+}
+
+a:hover, a:focus {
+    color: #495765;
+    font-weight: normal;
+}
+
+strong > a:hover, strong > a:focus {
+    font-weight: bold;
+}
+
+blockquote {
+    font-size: 1.8em;
+}
+
+img {
+    display: block;
+    margin: auto;
+}
+
+p.caption {
+    font-style: italic;
+    text-align: center;
 }
 
 header {
@@ -31,6 +55,10 @@ footer {
     width: auto;
     float: none;
     position: initial;
+}
+
+.wrapper {
+    width: 720px;
 }
 
 .post-item:not(:last-of-type) {
@@ -63,27 +91,4 @@ footer {
 
 .post-header {
     margin-bottom: 25px;
-}
-
-a:hover, a:focus {
-  color:#069;
-  font-weight: normal;
-}
-
-strong > a:hover, strong > a:focus {
-    font-weight: bold;
-}
-
-blockquote {
-    font-size: 1.8em;
-}
-
-img {
-    display: block;
-    margin: auto;
-}
-
-p.caption {
-    font-style: italic;
-    text-align: center;
 }
